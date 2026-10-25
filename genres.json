@@ -1,0 +1,134 @@
+{
+  "activity": {
+    "label": "観光・体験（マリン、ツアーなど）",
+    "schemaType": "LocalBusiness",
+    "labels": {
+      "about": "店舗案内",
+      "services": "体験メニュー・料金",
+      "flow": "体験の流れ",
+      "staff": "スタッフ紹介",
+      "gallery": "ギャラリー",
+      "news": "お知らせ",
+      "faq": "よくある質問",
+      "access": "集合場所・アクセス",
+      "reserve": "ご予約",
+      "voice": "お客様の声",
+      "column": "コラム"
+    },
+    "cta": {
+      "text": "予約する",
+      "page": "reserve"
+    },
+    "formKind": "reserve"
+  },
+  "restaurant": {
+    "label": "飲食店",
+    "schemaType": "Restaurant",
+    "labels": {
+      "about": "お店について",
+      "services": "メニュー",
+      "flow": "ご利用の流れ",
+      "staff": "スタッフ紹介",
+      "gallery": "フォトギャラリー",
+      "news": "お知らせ",
+      "faq": "よくある質問",
+      "access": "アクセス・営業時間",
+      "reserve": "ご予約",
+      "voice": "お客様の声",
+      "column": "コラム"
+    },
+    "cta": {
+      "text": "席を予約する",
+      "page": "reserve"
+    },
+    "formKind": "reserve"
+  },
+  "salon": {
+    "label": "美容室・サロン",
+    "schemaType": "HairSalon",
+    "labels": {
+      "about": "サロンについて",
+      "services": "メニュー・料金",
+      "flow": "ご来店の流れ",
+      "staff": "スタイリスト",
+      "gallery": "スタイルギャラリー",
+      "news": "お知らせ",
+      "faq": "よくある質問",
+      "access": "アクセス・営業時間",
+      "reserve": "ご予約",
+      "voice": "お客様の声",
+      "column": "ヘアケアコラム"
+    },
+    "cta": {
+      "text": "予約する",
+      "page": "reserve"
+    },
+    "formKind": "reserve"
+  },
+  "clinic": {
+    "label": "整体・治療院",
+    "schemaType": "HealthAndBeautyBusiness",
+    "labels": {
+      "about": "当院について",
+      "services": "施術メニュー・料金",
+      "flow": "施術の流れ",
+      "staff": "スタッフ紹介",
+      "gallery": "院内の様子",
+      "news": "お知らせ",
+      "faq": "よくある質問",
+      "access": "アクセス・診療時間",
+      "reserve": "ご予約",
+      "voice": "お客様の声",
+      "column": "お役立ちコラム"
+    },
+    "cta": {
+      "text": "予約する",
+      "page": "reserve"
+    },
+    "formKind": "reserve"
+  },
+  "construction": {
+    "label": "工務店・リフォーム・塗装",
+    "schemaType": "GeneralContractor",
+    "labels": {
+      "about": "会社案内",
+      "services": "対応工事・料金の目安",
+      "flow": "ご依頼の流れ",
+      "staff": "スタッフ紹介",
+      "gallery": "施工事例",
+      "news": "お知らせ",
+      "faq": "よくある質問",
+      "access": "アクセス・営業時間",
+      "reserve": "無料相談・お見積り",
+      "voice": "お客様の声",
+      "column": "リフォームコラム"
+    },
+    "cta": {
+      "text": "無料で相談する",
+      "page": "reserve"
+    },
+    "formKind": "estimate"
+  },
+  "office": {
+    "label": "士業・コンサル・事務所",
+    "schemaType": "ProfessionalService",
+    "labels": {
+      "about": "事務所案内",
+      "services": "取扱業務・料金",
+      "flow": "ご相談の流れ",
+      "staff": "スタッフ紹介",
+      "gallery": "事務所の様子",
+      "news": "お知らせ",
+      "faq": "よくある質問",
+      "access": "アクセス・受付時間",
+      "reserve": "ご相談予約",
+      "voice": "お客様の声",
+      "column": "お役立ちコラム"
+    },
+    "cta": {
+      "text": "相談を予約する",
+      "page": "reserve"
+    },
+    "formKind": "inquiry"
+  }
+}
