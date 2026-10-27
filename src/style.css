@@ -111,3 +111,120 @@ main{max-width:960px;margin:0 auto;padding:16px}
 .voice{background:#f7fafc;border-left:4px solid var(--accent);border-radius:8px;padding:14px 16px;margin:0 0 14px}
 .voice h2{margin-bottom:.3em}
 .news a{color:var(--main)}
+
+/* ---- 業種ごとの見た目の型（body の class で切り替え） ---- */
+.f-serif{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif}
+.f-serif h1,.f-serif h2,.f-serif h3,.f-serif .brand{font-family:"Hiragino Mincho ProN","Yu Mincho","Noto Serif JP",serif;font-weight:700;letter-spacing:.04em}
+.f-round{font-family:"Hiragino Maru Gothic ProN","Yu Gothic","Noto Sans JP",sans-serif}
+.r-sharp .card,.r-sharp .voice,.r-sharp .highlights li,.r-sharp .cta-block,.r-sharp .steps li,.r-sharp .map,.r-sharp .field input,.r-sharp .field select,.r-sharp .field textarea,.r-sharp .menu-btn{border-radius:2px}
+.r-sharp .btn{border-radius:2px}
+.r-round .card,.r-round .voice,.r-round .highlights li,.r-round .cta-block,.r-round .steps li,.r-round .map{border-radius:20px}
+.r-round .card-img{border-radius:0}
+
+.hero-tel{background:transparent;color:#fff;border-color:#fff}
+.h-split .hero-text,.h-text .hero-text{background:var(--main)}
+.h-split .hero,.h-text .hero{background:var(--main)}
+.h-text .hero-text{padding:36px 20px 40px}
+.h-text .hero-text h1{font-size:1.7rem}
+.trust{margin:0 -16px 8px;background:var(--bg);border-bottom:1px solid #e3e8ec}
+.trust ul{list-style:none;margin:0;padding:10px 16px;display:flex;flex-wrap:wrap;gap:6px 18px;font-size:.88rem;font-weight:700;color:var(--main)}
+.trust li::before{content:"✓ ";color:var(--accent)}
+.worries{list-style:none;padding:0;display:grid;gap:8px}
+.worries li{padding:12px 14px 12px 40px;background:#f7fafc;border-radius:8px;position:relative}
+.worries li::before{content:"";position:absolute;left:14px;top:50%;width:14px;height:14px;margin-top:-9px;border:2px solid var(--main);border-radius:3px}
+.menu-list{list-style:none;padding:0;margin:0}
+.menu-list li{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px dotted #9aa8b3}
+.menu-list .mn{min-width:0;font-weight:700}
+.menu-list small{display:block;font-weight:400;color:#5b6b76;font-size:.85rem}
+.menu-list .mp{white-space:nowrap;color:var(--accent);font-weight:700}
+@media(min-width:760px){
+  .h-split .hero{margin:0 0 32px;display:grid;grid-template-columns:1fr 1fr;align-items:stretch;overflow:hidden}
+  .h-split .hero-text{position:static;display:flex;flex-direction:column;justify-content:center;padding:40px;background:var(--main)}
+  .h-split .hero-img{height:100%;min-height:380px;max-height:none;opacity:1}
+  .h-text .hero{margin:-24px calc(50% - 50vw) 32px}
+  .h-text .hero-text{position:static;background:var(--main);padding:56px max(48px,calc(50vw - 480px)) 56px}
+  .h-text .hero-text h1{font-size:2.2rem}
+  .trust{margin:0 calc(50% - 50vw) 8px}.trust ul{padding:12px max(24px,calc(50vw - 480px))}
+  .worries{grid-template-columns:1fr 1fr}
+}
+
+/* 会社の主色に合わせた面の色、写真の並び */
+.hero-text{background:var(--main)}
+.highlights li,.cta-block,.steps li,.worries li,.voice,.info dt{background:color-mix(in srgb,var(--main) 7%,var(--bg))}
+.grid.works{grid-template-columns:1fr}
+@media(min-width:520px){.grid.works{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:760px){.grid.works{grid-template-columns:repeat(3,1fr)}.h-full .hero-text,.h-split .hero-text{background:linear-gradient(transparent,rgba(0,0,0,.65))}.h-split .hero-text{background:var(--main)}}
+.brand{white-space:nowrap}
+@media(min-width:760px){.site-header{gap:16px}.gnav{flex:1}}
+
+/* ---- 色の基盤：背景・帯・ヘッダー・フッターを業種色で ---- */
+.site-header{background:var(--main);border-bottom:0}
+.brand{color:#fff}
+.menu-btn{background:transparent;color:#fff;border-color:#fff}
+.gnav{background:var(--main);border-bottom:0}
+.gnav a{color:#fff;border-bottom-color:rgba(255,255,255,.18)}
+.gnav a[aria-current]{color:#fff;box-shadow:inset 0 -3px 0 var(--accent)}
+.site-footer{background:color-mix(in srgb,var(--main) 78%,#000);color:#fff}
+.site-footer a{color:#fff}.copy{color:rgba(255,255,255,.7)}
+.crumbs{color:color-mix(in srgb,var(--text) 65%,var(--bg))}
+.page-title{border-left-color:var(--accent)}
+.sec>h2{border-bottom-color:var(--main)}
+
+main>.sec{margin:0;padding:32px 0}
+main>.sec:nth-of-type(even){background:var(--band);box-shadow:0 0 0 100vmax var(--band);clip-path:inset(0 -100vmax)}
+.trust{background:var(--band);margin:0 -16px;border:0}
+.trust ul{color:var(--main)}
+
+.highlights li,.steps li,.worries li,.voice,.card,.cta-block .btn-tel{background:var(--card)}
+.highlights li,.steps li,.worries li,.voice,.card,.menu-list li{border:1px solid var(--line)}
+.menu-list li{border-width:0 0 1px;border-style:dotted;border-color:color-mix(in srgb,var(--main) 45%,var(--bg))}
+.card{border-color:var(--line)}
+.info dt{background:var(--band)}
+.news li{border-bottom-color:var(--line)}
+.notes li::marker{color:var(--accent)}
+.cta-block{background:var(--main);color:#fff;border-radius:var(--r,12px);padding:32px 16px}
+.cta-block .btn-tel{color:var(--main);border-color:#fff}
+.field input:not([type=checkbox]),.field select,.field textarea{border-color:color-mix(in srgb,var(--main) 35%,#fff)}
+.cta-bar{background:var(--card);border-top-color:var(--line)}
+.map{border:1px solid var(--line)}
+.h-text .hero-text{background:color-mix(in srgb,var(--main) 86%,#000)}
+@media(min-width:760px){.trust{margin:0 calc(50% - 50vw)}.gnav a{color:#fff}.h-text .hero-text{background:color-mix(in srgb,var(--main) 86%,#000)}}
+
+/* ---- 見直しでの対策 ---- */
+/* 古い端末で color-mix が使えなくても、文字が背景に溶けないよう先に通常の色を指定する */
+.site-footer{background:var(--main)}
+.site-footer{background:color-mix(in srgb,var(--main) 78%,#000)}
+.h-text .hero-text{background:var(--main)}
+.h-text .hero-text{background:color-mix(in srgb,var(--main) 86%,#000)}
+.cta-block{background:var(--main)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.site-header a:focus-visible,.gnav a:focus-visible,.menu-btn:focus-visible,.site-footer a:focus-visible{outline-color:#fff}
+/* 写真が明るくても、重ねた白文字が読めるようにする */
+.hero-text h1,.hero-text p{text-shadow:0 1px 3px rgba(0,0,0,.45)}
+.h-split .hero-text h1,.h-split .hero-text p,.h-text .hero-text h1,.h-text .hero-text p{text-shadow:none}
+@media(min-width:760px){.h-full .hero-text{background:linear-gradient(transparent,rgba(0,0,0,.78))}}
+
+/* ---- SEO構成（見本の役割表示・質問の分類・結論欄など） ---- */
+.sample-banner a{color:inherit;text-decoration:underline;font-weight:700}
+.seo-tag{margin:0 0 1.2rem;border:1px dashed #8a8a8a;background:#fffdf3;color:#333;border-radius:8px;font-size:.88rem}
+.seo-tag summary{cursor:pointer;padding:.7rem .9rem;font-weight:700;color:#5a4a00}
+.seo-tag dl{margin:0;padding:0 .9rem .9rem}
+.seo-tag dt{font-weight:700;margin-top:.7rem}
+.seo-tag dd{margin:.15rem 0 0}
+.seo-tag ul{margin:.2rem 0 0;padding-left:1.2rem}
+.seo-chip{margin:.2rem 0 1rem;padding:.5rem .7rem;border-left:4px solid #b59b2a;background:#fffdf3;color:#4a4020;font-size:.82rem;line-height:1.6}
+.seo-chip b{color:#5a4a00}
+.answer{margin:0 0 1.2rem;padding:.9rem 1rem;border-left:5px solid var(--main);background:var(--band);color:var(--text)}
+.answer strong{display:block;font-size:.8rem;letter-spacing:.08em;margin-bottom:.2rem;color:var(--text)}
+.jump ul{list-style:none;margin:0 0 1.2rem;padding:0;display:flex;flex-wrap:wrap;gap:.5rem}
+.jump a{display:inline-block;padding:.45rem .9rem;border:1px solid var(--main);border-radius:999px;text-decoration:none;color:var(--text);background:var(--card);min-height:44px;line-height:1.9}
+.checks{list-style:none;margin:0;padding:0}
+.checks li{position:relative;padding:.35rem 0 .35rem 1.6rem}
+.checks li::before{content:"✓";position:absolute;left:0;top:.35rem;color:var(--main);font-weight:700}
+.tag{display:inline-block;padding:.05rem .55rem;border:1px solid var(--line);border-radius:999px;font-size:.78rem;background:var(--card);color:var(--text)}
+.relbox{margin-top:1.5rem}
+.plan-item h2{font-size:1.05rem;word-break:break-all}
+.table-wrap{overflow-x:auto}
+.plan-table{border-collapse:collapse;width:100%;font-size:.88rem}
+.plan-table th,.plan-table td{border:1px solid var(--line);padding:.45rem .6rem;text-align:left;vertical-align:top}
+.plan-table th{background:var(--band)}

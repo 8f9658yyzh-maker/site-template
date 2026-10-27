@@ -70,10 +70,18 @@ for (const f of htmls) {
 
   if (/TODO|〇〇|XXX|ダミー|lorem/i.test(html)) warn(name, '仮の文字（TODO・〇〇など）が残っています');
   if (/（見本）|見本の/.test(html)) warn(name, '見本の文章が残っています（本番前に差し替えてください）');
-  const text = html.replace(/<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<[^>]+>/g, ' ');
+  const text = html.replace(/<details class="seo-tag">[\s\S]*?<\/details>|<script[\s\S]*?<\/script>|<style[\s\S]*?<\/style>|<[^>]+>/g, ' ');
   const risky = text.match(/完治|絶対に?(治|安全|痩)|必ず(治|痩|改善)|日本一|最安値|No\.?\s?1|NO\.?\s?1|奇跡/gi);
-  if (risky) warn(name, `根拠を示しにくい強い表現があります（${[...new Set(risky)].join('、')}）。裏付けがあるか、公開前に確認してください`);
-  if (!noindex) indexable.push({ name, canon });
+  if (risky && !name.startsWith('_seo-plan')) warn(name, `根拠を示しにくい強い表現があります（${[...new Set(risky)].join('、')}）。裏付けがあるか、公開前に確認してください`);
+  if (!noindex) {
+    const mainHtml = (html.match(/<main id="main">([\s\S]*?)<\/main>/) || [])[1] || '';
+    const bodyText = mainHtml.replace(/<details class="seo-tag">[\s\S]*?<\/details>|<p class="seo-chip">[\s\S]*?<\/p>|<script[\s\S]*?<\/script>|<[^>]+>/g, '').replace(/\s+/g, '');
+    const inLinks = new Set([...mainHtml.matchAll(/href="(\/[^"#]*)"/g)].map((m) => m[1]));
+    const isForm = /reserve\/index\.html$/.test(name) || /policy\/index\.html$/.test(name);
+    if (!isForm && bodyText.length < 250) warn(name, `本文が短めです（約${bodyText.length}文字）。検索する人の疑問に答える内容を足してください`);
+    if (!isForm && inLinks.size < 2) warn(name, `本文中のリンクが少なめです（${inLinks.size}か所）。関連するページへのリンクを入れてください`);
+    indexable.push({ name, canon });
+  }
 }
 
 // サイトマップとrobots
