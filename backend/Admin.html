@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ja"><head><base target="_top"><meta charset="utf-8">
+<style>
+body{font:16px/1.6 -apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;margin:0;padding:16px;background:#f4f6f8;color:#1b2a33}
+h1{font-size:1.2rem;margin:0 0 12px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+.tabs button{padding:8px 14px;border:1px solid #9aa8b3;background:#fff;border-radius:999px;font:inherit;cursor:pointer}
+.tabs button[aria-pressed=true]{background:#1f4e79;color:#fff;border-color:#1f4e79}
+.card{background:#fff;border:1px solid #d9e1e7;border-radius:10px;padding:12px 14px;margin-bottom:12px}
+.card h2{font-size:1.05rem;margin:0 0 4px}
+.meta{color:#5a6a76;font-size:.85rem;margin:0 0 6px}
+dl{display:grid;grid-template-columns:auto 1fr;gap:2px 10px;margin:6px 0}
+dt{font-weight:700}dd{margin:0;word-break:break-all;white-space:pre-wrap}
+.row{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+select,textarea,button.save{font:inherit;padding:8px;border:1px solid #9aa8b3;border-radius:6px}
+textarea{flex:1 1 220px;min-width:0}
+button.save{background:#1f4e79;color:#fff;border-color:#1f4e79;cursor:pointer}
+.msg{font-size:.85rem;color:#2a7a3b}.err{color:#b00}
+.badge{display:inline-block;padding:1px 8px;border-radius:999px;font-size:.78rem;background:#e0e7ee;margin-left:6px}
+.badge.n{background:#ffe3b3}
+</style></head>
+<body>
+<h1>受付の管理画面</h1>
+<div class="tabs" id="tabs" role="group" aria-label="状態で絞り込み"></div>
+<p id="status" role="status">読み込み中…</p>
+<div id="list"></div>
+<script>
+var KEY = <?!= JSON.stringify(key) ?>;
+var DATA = null, FILTER = '新規';
+function el(tag, props, kids) {
+  var e = document.createElement(tag);
+  for (var k in (props || {})) { if (k === 'text') e.textContent = props[k]; else e.setAttribute(k, props[k]); }
+  (kids || []).forEach(function (c) { e.appendChild(c); });
+  return e;
+}
+function load() {
+  google.script.run.withSuccessHandler(function (d) { DATA = d; render(); })
+    .withFailureHandler(function () { document.getElementById('status').textContent = '読み込めませんでした。ページを開き直してください。'; })
+    .adminList(KEY);
+}
+function render() {
+  var tabs = document.getElementById('tabs'); tabs.textContent = '';
+  var counts = {}; DATA.rows.forEach(function (r) { counts[r['状態']] = (counts[r['状態']] || 0) + 1; });
+  DATA.statuses.concat(['すべて']).forEach(function (s) {
+    var n = s === 'すべて' ? DATA.rows.length : (counts[s] || 0);
+    var b = el('button', { type: 'button', 'aria-pressed': String(FILTER === s), text: s + '（' + n + '）' });
+    b.onclick = function () { FILTER = s; render(); };
+    tabs.appendChild(b);
+  });
+  var list = document.getElementById('list'); list.textContent = '';
+  var rows = DATA.rows.filter(function (r) { return FILTER === 'すべて' || r['状態'] === FILTER; });
+  document.getElementById('status').textContent = rows.length ? '' : 'この状態の受付はありません。';
+  rows.forEach(function (r) { list.appendChild(card(r)); });
+}
+function card(r) {
+  var sel = el('select', { 'aria-label': '状態' });
+  DATA.statuses.forEach(function (s) { var o = el('option', { value: s, text: s }); if (s === r['状態']) o.selected = true; sel.appendChild(o); });
+  var memo = el('textarea', { rows: '2', 'aria-label': 'メモ', placeholder: 'メモ（対応内容など）' }); memo.value = r['メモ'] || '';
+  var msg = el('span', { class: 'msg' });
+  var save = el('button', { type: 'button', class: 'save', text: '保存' });
+  save.onclick = function () {
+    save.disabled = true; msg.className = 'msg'; msg.textContent = '保存中…';
+    google.script.run.withSuccessHandler(function () { r['状態'] = sel.value; r['メモ'] = memo.value; msg.textContent = '保存しました'; save.disabled = false; })
+      .withFailureHandler(function () { msg.className = 'err'; msg.textContent = '保存できませんでした。もう一度お試しください'; save.disabled = false; })
+      .adminUpdate(KEY, r['受付ID'], sel.value, memo.value);
+  };
+  var dl = el('dl', {});
+  ['メール', '電話', '種別', '希望日', '希望時間', '人数', '場所', '内容'].forEach(function (k) {
+    if (r[k]) { dl.appendChild(el('dt', { text: k })); dl.appendChild(el('dd', { text: r[k] })); }
+  });
+  var badge = el('span', { class: 'badge' + (r['状態'] === '新規' ? ' n' : ''), text: r['状態'] });
+  return el('div', { class: 'card' }, [
+    el('h2', { text: r['お名前'] + ' 様' }, [badge]),
+    el('p', { class: 'meta', text: r['受付日時'] + '　ID: ' + r['受付ID'] + (r['サイト'] ? '　' + r['サイト'] : '') }),
+    dl, el('div', { class: 'row' }, [sel, memo, save, msg])
+  ]);
+}
+load();
+</script></body></html>

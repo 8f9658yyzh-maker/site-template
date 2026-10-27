@@ -19,7 +19,43 @@
       "text": "予約する",
       "page": "reserve"
     },
-    "formKind": "reserve"
+    "formKind": "reserve",
+    "design": {
+      "hero": "full",
+      "font": "sans",
+      "radius": "soft",
+      "services": "cards",
+      "home": [
+        "highlights",
+        "services",
+        "voice",
+        "flow",
+        "works",
+        "staff",
+        "news",
+        "access"
+      ]
+    },
+    "defaultTheme": {
+      "main": "#0b5f8f",
+      "accent": "#d9480f",
+      "bg": "#ffffff",
+      "text": "#1b2a33"
+    },
+    "biz": "マリン体験",
+    "seoExtra": {
+      "service": [
+        "参加条件（年齢・体重・健康状態）と、参加できない場合",
+        "天候による中止・日程変更・返金の条件",
+        "持ち物・服装・集合場所"
+      ],
+      "faq": [
+        "天候・年齢・体重・服装・写真撮影などの安全と持ち物の質問を先に並べる"
+      ],
+      "gallery": [
+        "安全面（ライフジャケット・講習）が分かる写真説明を添える"
+      ]
+    }
   },
   "restaurant": {
     "label": "飲食店",
@@ -41,7 +77,41 @@
       "text": "席を予約する",
       "page": "reserve"
     },
-    "formKind": "reserve"
+    "formKind": "reserve",
+    "design": {
+      "hero": "full",
+      "font": "serif",
+      "radius": "sharp",
+      "services": "list",
+      "home": [
+        "highlights",
+        "services",
+        "works",
+        "voice",
+        "news",
+        "access"
+      ]
+    },
+    "defaultTheme": {
+      "main": "#3b2a20",
+      "accent": "#9a3412",
+      "bg": "#fbf7f1",
+      "text": "#2a2018"
+    },
+    "biz": "レストラン",
+    "seoExtra": {
+      "service": [
+        "コース内容（品数・主な食材）とアレルギー対応の可否",
+        "予約の締め切り・人数・個室の有無",
+        "飲み放題など別料金の条件"
+      ],
+      "faq": [
+        "アレルギー・子ども連れ・貸切・駐車場・支払い方法を分けて書く"
+      ],
+      "access": [
+        "席数・個室・駐車場台数・最寄り駅からの時間"
+      ]
+    }
   },
   "salon": {
     "label": "美容室・サロン",
@@ -63,7 +133,41 @@
       "text": "予約する",
       "page": "reserve"
     },
-    "formKind": "reserve"
+    "formKind": "reserve",
+    "design": {
+      "hero": "full",
+      "font": "serif",
+      "radius": "sharp",
+      "services": "list",
+      "home": [
+        "services",
+        "works",
+        "staff",
+        "voice",
+        "news",
+        "access"
+      ]
+    },
+    "defaultTheme": {
+      "main": "#5b3a52",
+      "accent": "#9d174d",
+      "bg": "#ffffff",
+      "text": "#2b2230"
+    },
+    "biz": "美容室",
+    "seoExtra": {
+      "service": [
+        "所要時間の目安と、髪の長さ・量による追加料金の条件",
+        "使用する薬剤・トリートメントの特徴は事実のみ",
+        "担当スタッフの指名可否"
+      ],
+      "staff": [
+        "スタイリストの得意な施術・経験年数・指名料の有無"
+      ],
+      "gallery": [
+        "ビフォーアフターは髪質・長さ・施術内容を添える"
+      ]
+    }
   },
   "clinic": {
     "label": "整体・治療院",
@@ -85,7 +189,48 @@
       "text": "予約する",
       "page": "reserve"
     },
-    "formKind": "reserve"
+    "formKind": "reserve",
+    "design": {
+      "hero": "split",
+      "font": "sans",
+      "radius": "soft",
+      "services": "list",
+      "home": [
+        "trust",
+        "worries",
+        "highlights",
+        "services",
+        "flow",
+        "staff",
+        "voice",
+        "news",
+        "access"
+      ]
+    },
+    "defaultTheme": {
+      "main": "#0f6b4f",
+      "accent": "#c2410c",
+      "bg": "#ffffff",
+      "text": "#18302a"
+    },
+    "biz": "整体院",
+    "seoExtra": {
+      "service": [
+        "対象となる症状（症状別）と、施術時間・回数の目安",
+        "保険の適用範囲（適用できる場合／できない場合）",
+        "医療機関での受診が必要な症状の案内"
+      ],
+      "article": [
+        "治る・改善するなどの断定を避け、一般的な情報として書く",
+        "強い症状は医療機関の受診を案内する"
+      ],
+      "voice": [
+        "医療・治療院の体験談は広告規制の対象になりうるので、公開前に確認"
+      ],
+      "staff": [
+        "保有資格（国家資格か民間資格か）を区別して書く"
+      ]
+    }
   },
   "construction": {
     "label": "工務店・リフォーム・塗装",
@@ -107,7 +252,48 @@
       "text": "無料で相談する",
       "page": "reserve"
     },
-    "formKind": "estimate"
+    "formKind": "estimate",
+    "design": {
+      "hero": "full",
+      "font": "sans",
+      "radius": "sharp",
+      "services": "cards",
+      "home": [
+        "trust",
+        "works",
+        "highlights",
+        "services",
+        "voice",
+        "flow",
+        "staff",
+        "news",
+        "access"
+      ]
+    },
+    "defaultTheme": {
+      "main": "#1f2937",
+      "accent": "#b45309",
+      "bg": "#ffffff",
+      "text": "#1f2937"
+    },
+    "biz": "リフォーム",
+    "seoExtra": {
+      "service": [
+        "工事の範囲と費用の幅（目安）",
+        "工期の目安",
+        "保証・アフター対応の内容",
+        "追加費用が出る条件"
+      ],
+      "gallery": [
+        "事例は『築年数・工事内容・費用・工期・保証・お客様の悩み・仕上がり』の7項目で書く"
+      ],
+      "faq": [
+        "見積り・追加費用・工事中の生活・保証・支払い方法を分けて書く"
+      ],
+      "access": [
+        "対応エリア（市区町村名）を具体的に書く"
+      ]
+    }
   },
   "office": {
     "label": "士業・コンサル・事務所",
@@ -129,6 +315,44 @@
       "text": "相談を予約する",
       "page": "reserve"
     },
-    "formKind": "inquiry"
+    "formKind": "inquiry",
+    "design": {
+      "hero": "text",
+      "font": "serif",
+      "radius": "sharp",
+      "services": "list",
+      "home": [
+        "trust",
+        "services",
+        "staff",
+        "flow",
+        "news",
+        "access"
+      ]
+    },
+    "defaultTheme": {
+      "main": "#1e3a5f",
+      "accent": "#b45309",
+      "bg": "#ffffff",
+      "text": "#1b2733"
+    },
+    "biz": "相談事務所",
+    "seoExtra": {
+      "service": [
+        "対応分野ごとの相談内容と、料金の目安・報酬の考え方",
+        "初回相談の有無と費用",
+        "相談から着手までの流れ",
+        "守秘義務の扱い"
+      ],
+      "staff": [
+        "資格名・登録番号・所属団体・経歴を事実で明記"
+      ],
+      "article": [
+        "制度や法律の話は、確認した日付と出典を書く。個別事案は専門家に相談するよう案内"
+      ],
+      "faq": [
+        "費用・初回相談・対応分野・秘密の保持・オンライン対応を分けて書く"
+      ]
+    }
   }
 }
